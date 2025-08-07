@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="OBS CAISSE - Plateforme Multi-Tenant SaaS pour 8 secteurs d'activité en Afrique" />
+    <title>🏪 OBS CAISSE - Multi-Tenant</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+                'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+                sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .loading-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-top: 5px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .feature-list {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+            max-width: 600px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            font-size: 18px;
+        }
+
+        .feature-emoji {
+            font-size: 24px;
+            margin-right: 15px;
+            width: 40px;
+        }
+
+        .error-message {
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            color: #ffcccb;
+        }
+    </style>
+</head>
+<body>
+    <noscript>Vous devez activer JavaScript pour utiliser cette application.</noscript>
+    
+    <div id="root">
+        <div class="loading-container">
+            <div class="loading-spinner"></div>
+            <h1>🏪 OBS CAISSE Multi-Tenant</h1>
+            <h2>Chargement de la plateforme...</h2>
+            <p>Plateforme SaaS révolutionnaire pour 8 secteurs d'activité en Afrique</p>
+            
+            <div class="feature-list">
+                <h3>✨ Fonctionnalités Multi-Sectorielles</h3>
+                
+                <div class="feature-item">
+                    <span class="feature-emoji">📱</span>
+                    <span>Téléphonie : Suivi IMEI, réparations, garanties</span>
+                </div>
+                
+                <div class="feature-item">
+                    <span class="feature-emoji">🍽️</span>
+                    <span>Restaurant : Commandes, cuisine, livraisons</span>
+                </div>
+                
+                <div class="feature-item">
+                    <span class="feature-emoji">🏨</span>
+                    <span>Hôtellerie : Réservations, chambres, services</span>
+                </div>
+                
+                <div class="feature-item">
+                    <span class="feature-emoji">🍺</span>
+                    <span>Bars : Stock boissons, événements</span>
+                </div>
+                
+                <div class="feature-item">
+                    <span class="feature-emoji">🛍️</span>
+                    <span>Retail : Inventaire, promotions, fidélisation</span>
+                </div>
+                
+                <div class="feature-item">
+                    <span class="feature-emoji">🏥</span>
+                    <span>Santé : Médicaments, ordonnances, traçabilité</span>
+                </div>
+                
+                <div class="feature-item">
+                    <span class="feature-emoji">🎓</span>
+                    <span>Éducation : Inscriptions, paiements, cours</span>
+                </div>
+                
+                <div class="feature-item">
+                    <span class="feature-emoji">🔧</span>
+                    <span>Services : Rendez-vous, interventions</span>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px; font-size: 14px; opacity: 0.8;">
+                <p>🚀 Architecture Multi-Tenant | 🔒 Sécurité RLS | ⚡ Performance Optimisée</p>
+                <p>Développé par <strong>SONUTEC SARL</strong> - Version 2.0</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Configuration des variables d'environnement pour le développement
+        window.REACT_APP_SUPABASE_URL = 'https://vhahwekekuuntqlkvtoc.supabase.co';
+        window.REACT_APP_SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZoYWh3ZWtla3V1bnRxbGt2dG9jIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM5NDgzNDUsImV4cCI6MjA2OTUyNDM0NX0.EQtEA-4GqM19vSNEoIF3HgczMEXoelS-o9VyExP2dpw';
+        window.REACT_APP_MULTI_TENANT_MODE = 'true';
+
+        // Gestion des erreurs
+        window.addEventListener('error', function(e) {
+            const root = document.getElementById('root');
+            if (root) {
+                root.innerHTML = `
+                    <div class="loading-container">
+                        <h1>❌ Erreur de Chargement</h1>
+                        <div class="error-message">
+                            <h3>Impossible de charger l'application</h3>
+                            <p><strong>Erreur:</strong> ${e.message}</p>
+                            <p><strong>Fichier:</strong> ${e.filename}</p>
+                            <p><strong>Ligne:</strong> ${e.lineno}</p>
+                            <br>
+                            <p>Veuillez vérifier :</p>
+                            <ul style="text-align: left;">
+                                <li>La connexion internet</li>
+                                <li>Les variables d'environnement Supabase</li>
+                                <li>La compilation des fichiers TypeScript</li>
+                            </ul>
+                            <button onclick="window.location.reload()" 
+                                    style="background: #2196F3; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-top: 15px;">
+                                🔄 Recharger la Page
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }
+        });
+
+        // Timeout de sécurité
+        setTimeout(function() {
+            const loadingSpinner = document.querySelector('.loading-spinner');
+            if (loadingSpinner && loadingSpinner.style.display !== 'none') {
+                console.warn('Application taking longer than expected to load...');
+            }
+        }, 10000);
+    </script>
+</body>
+</html>
