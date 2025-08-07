@@ -1,79 +1,211 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
+import { supabase } from '../../config/supabase';
+import {
+  Box,
+  Typography,
+  Table,
+  TableHead,
+  TableBody,
+  TableRow,
+  TableCell,
+  Button,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  TextField,
+  Select,
+  MenuItem,
+  FormControl,
+  InputLabel,
+  Alert,
+} from '@mui/material';
 
-const AdminDashboard: React.FC = () => {
-  return (
-    <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
-      <h1>🏪 Administration OBS CAISSE</h1>
-      
-      <div style={{ 
-        backgroundColor: '#f5f5f5', 
-        padding: '20px', 
-        borderRadius: '8px',
-        margin: '20px 0'
-      }}>
-        <h3>📊 Tableau de Bord Administrateur</h3>
-        <p>Interface d'administration simplifiée pour le déploiement.</p>
-        
-        <div style={{ marginTop: '20px' }}>
-          <h4>🔧 Fonctionnalités Disponibles :</h4>
-          <ul>
-            <li>✅ Gestion des boutiques</li>
-            <li>✅ Gestion des utilisateurs</li>
-            <li>✅ Gestion des stocks</li>
-            <li>✅ Rapports et statistiques</li>
-            <li>✅ Configuration système</li>
-          </ul>
-        </div>
-      </div>
-      
-      <div style={{ 
-        display: 'grid', 
-        gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', 
-        gap: '20px',
-        marginTop: '30px'
-      }}>
-        <div style={{ 
-          backgroundColor: 'white', 
-          padding: '20px', 
-          borderRadius: '8px',
-          boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-        }}>
-          <h4>🏪 Boutiques</h4>
-          <p>Gérer les points de vente</p>
-        </div>
-        
-        <div style={{ 
-          backgroundColor: 'white', 
-          padding: '20px', 
-          borderRadius: '8px',
-          boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-        }}>
-          <h4>👥 Utilisateurs</h4>
-          <p>Gestion des comptes</p>
-        </div>
-        
-        <div style={{ 
-          backgroundColor: 'white', 
-          padding: '20px', 
-          borderRadius: '8px',
-          boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-        }}>
-          <h4>📦 Stocks</h4>
-          <p>Inventaire et produits</p>
-        </div>
-        
-        <div style={{ 
-          backgroundColor: 'white', 
-          padding: '20px', 
-          borderRadius: '8px',
-          boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-        }}>
-          <h4>📊 Rapports</h4>
-          <p>Statistiques et analyses</p>
-        </div>
-      </div>
-    </div>
-  )
+interface User {
+  id: string;
+  email: string;
+  role: string;
+  boutique_id: string | null;
 }
 
-export default AdminDashboard
+interface Boutique {
+  id: string;
+  name: string;
+}
+
+const roles = ['admin_master', 'admin_central', 'manager', 'cashier'];
+
+const AdminDashboard: React.FC = () => {
+  const [users, setUsers] = useState<User[]>([]);
+  const [boutiques, setBoutiques] = useState<Boutique[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const [openDialog, setOpenDialog] = useState(false);
+  const [editUser, setEditUser] = useState<User | null>(null);
+  const [email, setEmail] = useState('');
+  const [role, setRole] = useState('manager');
+  const [boutiqueId, setBoutiqueId] = useState<string | null>(null);
+
+  const fetchUsers = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const { data, error } = await supabase.from('users').select('*');
+      if (error) throw error;
+      setUsers(data || []);
+    } catch (err: any) {
+      setError(err.message || 'Erreur lors du chargement des utilisateurs');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const fetchBoutiques = async () => {
+    try {
+      const { data, error } = await supabase.from('boutiques').select('*');
+      if (error) throw error;
+      setBoutiques(data || []);
+    } catch (err: any) {
+      setError(err.message || 'Erreur lors du chargement des boutiques');
+    }
+  };
+
+  useEffect(() => {
+    fetchUsers();
+    fetchBoutiques();
+  }, []);
+
+  const handleOpenDialog = (user?: User) => {
+    if (user) {
+      setEditUser(user);
+      setEmail(user.email);
+      setRole(user.role);
+      setBoutiqueId(user.boutique_id);
+    } else {
+      setEditUser(null);
+      setEmail('');
+      setRole('manager');
+      setBoutiqueId(null);
+    }
+    setOpenDialog(true);
+  };
+
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
+    setError(null);
+  };
+
+  const handleSaveUser = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      if (editUser) {
+        // Update existing user
+        const { error } = await supabase
+          .from('users')
+          .update({ role, boutique_id: boutiqueId })
+          .eq('id', editUser.id);
+        if (error) throw error;
+      } else {
+        // Create new user
+        const { error } = await supabase.from('users').insert([{ email, role, boutique_id: boutiqueId }]);
+        if (error) throw error;
+      }
+      await fetchUsers();
+      handleCloseDialog();
+    } catch (err: any) {
+      setError(err.message || 'Erreur lors de la sauvegarde');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleDeleteUser = async (userId: string) => {
+    if (!window.confirm('Voulez-vous vraiment supprimer cet utilisateur ?')) return;
+    setLoading(true);
+    setError(null);
+    try {
+      const { error } = await supabase.from('users').delete().eq('id', userId);
+      if (error) throw error;
+      await fetchUsers();
+    } catch (err: any) {
+      setError(err.message || 'Erreur lors de la suppression');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <Box sx={{ p: 3 }}>
+      <Typography variant="h4" gutterBottom>
+        Administration des Utilisateurs
+      </Typography>
+      {error && <Alert severity="error" sx={{ mb: 2 }}>{error}</Alert>}
+      <Button variant="contained" color="primary" onClick={() => handleOpenDialog()} sx={{ mb: 2 }}>
+        Ajouter un utilisateur
+      </Button>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell>Email</TableCell>
+            <TableCell>Rôle</TableCell>
+            <TableCell>Boutique</TableCell>
+            <TableCell>Actions</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {users.map(user => (
+            <TableRow key={user.id}>
+              <TableCell>{user.email}</TableCell>
+              <TableCell>{user.role}</TableCell>
+              <TableCell>{boutiques.find(b => b.id === user.boutique_id)?.name || '-'}</TableCell>
+              <TableCell>
+                <Button size="small" onClick={() => handleOpenDialog(user)}>Modifier</Button>
+                <Button size="small" color="error" onClick={() => handleDeleteUser(user.id)}>Supprimer</Button>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+
+      <Dialog open={openDialog} onClose={handleCloseDialog}>
+        <DialogTitle>{editUser ? 'Modifier Utilisateur' : 'Ajouter Utilisateur'}</DialogTitle>
+        <DialogContent>
+          <TextField
+            label="Email"
+            type="email"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            fullWidth
+            margin="normal"
+            disabled={!!editUser}
+          />
+          <FormControl fullWidth margin="normal">
+            <InputLabel>Rôle</InputLabel>
+            <Select value={role} onChange={e => setRole(e.target.value)}>
+              {roles.map(r => (
+                <MenuItem key={r} value={r}>{r}</MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+          <FormControl fullWidth margin="normal">
+            <InputLabel>Boutique</InputLabel>
+            <Select value={boutiqueId || ''} onChange={e => setBoutiqueId(e.target.value || null)}>
+              <MenuItem value="">Aucune</MenuItem>
+              {boutiques.map(b => (
+                <MenuItem key={b.id} value={b.id}>{b.name}</MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseDialog}>Annuler</Button>
+          <Button onClick={handleSaveUser} disabled={loading}>{loading ? 'Enregistrement...' : 'Enregistrer'}</Button>
+        </DialogActions>
+      </Dialog>
+    </Box>
+  );
+};
+
+export default AdminDashboard;

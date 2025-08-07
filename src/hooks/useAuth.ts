@@ -19,7 +19,7 @@ export const useAuth = () => {
     // Récupérer la session actuelle
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (session?.user) {
-        fetchUserProfile(session.user.id)
+        fetchUserProfile(session.user.id, session.user.email)
       } else {
         setLoading(false)
       }
@@ -29,7 +29,7 @@ export const useAuth = () => {
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (event, session) => {
         if (session?.user) {
-          await fetchUserProfile(session.user.id)
+          await fetchUserProfile(session.user.id, session.user.email)
         } else {
           setUser(null)
           setLoading(false)
@@ -40,31 +40,62 @@ export const useAuth = () => {
     return () => subscription.unsubscribe()
   }, [])
 
-  const fetchUserProfile = async (userId: string) => {
+  const fetchUserProfile = async (userId: string, email?: string) => {
     try {
-      const { data, error } = await supabase
-        .from('users')
-        .select(`
-          *,
-          boutique:boutiques(name, commercial_name)
-        `)
-        .eq('id', userId)
+      // Récupérer le profil utilisateur depuis user_profiles
+      const { data: profile, error: profileError } = await supabase
+        .from('user_profiles')
+        .select('*')
+        .eq('user_id', userId)
         .single()
 
-      if (error) throw error
+      if (profileError) {
+        console.error('Erreur lors de la récupération du profil:', profileError)
+        // Si pas de profil, créer un utilisateur basique
+        setUser({
+          id: userId,
+          email: email || '',
+          role: 'vendeur',
+          boutique_id: null,
+          company_id: null,
+          boutique_name: null,
+          first_name: null,
+          last_name: null,
+          aud: '',
+          created_at: new Date().toISOString(),
+          app_metadata: {},
+          user_metadata: {}
+        } as AuthUser)
+        setLoading(false)
+        return
+      }
+
+      // Récupérer les informations de l'employé si disponible
+      let employeeData = null
+      if (profile.employe_id) {
+        const { data: employee } = await supabase
+          .from('employes')
+          .select(`
+            *,
+            boutique:boutiques(nom)
+          `)
+          .eq('id', profile.employe_id)
+          .single()
+        
+        employeeData = employee
+      }
 
       setUser({
         id: userId,
-        email: data.email,
-        role: data.role,
-        boutique_id: data.boutique_id,
-        company_id: data.company_id,
-        boutique_name: data.boutique?.commercial_name || data.boutique?.name || null,
-        first_name: data.first_name,
-        last_name: data.last_name,
-        // Autres propriétés User de Supabase
+        email: email || '',
+        role: profile.role,
+        boutique_id: employeeData?.boutique_id || null,
+        company_id: null,
+        boutique_name: employeeData?.boutique?.nom || null,
+        first_name: employeeData?.prenom || null,
+        last_name: employeeData?.nom || null,
         aud: '',
-        created_at: data.created_at,
+        created_at: profile.created_at,
         app_metadata: {},
         user_metadata: {}
       } as AuthUser)
@@ -97,9 +128,9 @@ export const useAuth = () => {
     signIn,
     signOut,
     isAuthenticated: !!user,
-    isAdmin: user?.role === 'admin_master',
-    isCentral: user?.role === 'admin_central',
+    isAdmin: user?.role === 'admin_system',
+    isCentral: user?.role === 'proprietaire',
     isManager: user?.role === 'manager',
-    isCashier: user?.role === 'cashier'
+    isCashier: user?.role === 'caissier'
   }
 }

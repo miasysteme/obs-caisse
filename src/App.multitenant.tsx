@@ -13,6 +13,7 @@ import {
 import { BusinessSector } from './types/multitenant';
 import SectorSelector from './components/sectors/SectorSelector';
 import TelephonyDashboard from './components/sectors/telephony/TelephonyDashboard';
+import HotelAdminPanel from './components/sectors/hotel/HotelAdminPanel';
 
 const theme = createTheme({
   palette: {
@@ -61,18 +62,7 @@ const App: React.FC = () => {
         );
       
       case 'hotel':
-        return (
-          <Box sx={{ p: 3, textAlign: 'center' }}>
-            <Typography variant="h4" gutterBottom>
-              🏨 Interface Hôtellerie
-            </Typography>
-            <Alert severity="info">
-              Interface hôtellerie en cours de développement...
-              <br />
-              Fonctionnalités prévues : Réservations, gestion des chambres, services
-            </Alert>
-          </Box>
-        );
+        return <HotelAdminPanel establishmentId="demo-hotel-001" userId="demo-user-001" />;
       
       default:
         return (

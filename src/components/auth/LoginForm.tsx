@@ -1,116 +1,58 @@
-import React, { useState } from 'react'
-import {
-  Box,
-  Card,
-  CardContent,
-  TextField,
-  Button,
-  Typography,
-  Alert,
-  CircularProgress,
-  Container
-} from '@mui/material'
-import { useAuth } from '../../hooks/useAuth'
+import React, { useState } from 'react';
+import { useAuth } from '../../hooks/useAuth';
+import { TextField, Button, Typography, Box, Alert } from '@mui/material';
 
-export const LoginForm: React.FC = () => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [error, setError] = useState('')
-  const [loading, setLoading] = useState(false)
-  const { signIn } = useAuth()
+const LoginForm: React.FC = () => {
+  const { signIn } = useAuth();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setError('')
-    setLoading(true)
-
-    try {
-      const { error } = await signIn(email, password)
-      if (error) {
-        setError(error.message)
-      }
-    } catch (err: any) {
-      setError('Erreur de connexion')
-    } finally {
-      setLoading(false)
+    e.preventDefault();
+    setError(null);
+    setLoading(true);
+    const { error } = await signIn(email, password);
+    setLoading(false);
+    if (error) {
+      setError(error.message || 'Erreur lors de la connexion');
     }
-  }
+  };
 
   return (
-    <Container maxWidth="sm">
-      <Box
-        sx={{
-          minHeight: '100vh',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}
-      >
-        <Card sx={{ width: '100%', maxWidth: 400 }}>
-          <CardContent sx={{ p: 4 }}>
-            <Box sx={{ textAlign: 'center', mb: 4 }}>
-              <Typography variant="h4" component="h1" gutterBottom>
-                OBS CAISSE
-              </Typography>
-              <Typography variant="subtitle1" color="text.secondary">
-                Système de Point de Vente
-              </Typography>
-            </Box>
+    <Box
+      component="form"
+      onSubmit={handleSubmit}
+      sx={{ maxWidth: 400, mx: 'auto', mt: 4, p: 3, boxShadow: 3, borderRadius: 2 }}
+    >
+      <Typography variant="h5" component="h1" gutterBottom>
+        Connexion
+      </Typography>
+      {error && <Alert severity="error" sx={{ mb: 2 }}>{error}</Alert>}
+      <TextField
+        label="Email"
+        type="email"
+        value={email}
+        onChange={e => setEmail(e.target.value)}
+        fullWidth
+        required
+        margin="normal"
+      />
+      <TextField
+        label="Mot de passe"
+        type="password"
+        value={password}
+        onChange={e => setPassword(e.target.value)}
+        fullWidth
+        required
+        margin="normal"
+      />
+      <Button type="submit" variant="contained" color="primary" fullWidth disabled={loading}>
+        {loading ? 'Connexion...' : 'Se connecter'}
+      </Button>
+    </Box>
+  );
+};
 
-            {error && (
-              <Alert severity="error" sx={{ mb: 3 }}>
-                {error}
-              </Alert>
-            )}
-
-            <form onSubmit={handleSubmit}>
-              <TextField
-                fullWidth
-                label="Email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                margin="normal"
-                required
-                autoFocus
-                disabled={loading}
-              />
-              
-              <TextField
-                fullWidth
-                label="Mot de passe"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                margin="normal"
-                required
-                disabled={loading}
-              />
-
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                size="large"
-                disabled={loading}
-                sx={{ mt: 3, mb: 2 }}
-              >
-                {loading ? (
-                  <CircularProgress size={24} color="inherit" />
-                ) : (
-                  'Se connecter'
-                )}
-              </Button>
-            </form>
-
-            <Box sx={{ textAlign: 'center', mt: 3 }}>
-              <Typography variant="caption" color="text.secondary">
-                Powered by SONUTEC SARL
-              </Typography>
-            </Box>
-          </CardContent>
-        </Card>
-      </Box>
-    </Container>
-  )
-}
+export default LoginForm;
