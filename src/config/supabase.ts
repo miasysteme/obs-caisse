@@ -1,7 +1,7 @@
 import { createClient } from '@supabase/supabase-js'
 
 const supabaseUrl = process.env.REACT_APP_SUPABASE_URL || 'https://vhahwekekuuntqlkvtoc.supabase.co'
-const supabaseAnonKey = process.env.REACT_APP_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZoYWh3ZWtla3V1bnRxbGt2dG9jIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzM0OTI4NzEsImV4cCI6MjA0OTA2ODg3MX0.YSBJrVBXhJhEhKJhYJhEhKJhYJhEhKJhYJhEhKJhYJhE'
+const supabaseAnonKey = process.env.REACT_APP_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZoYWh3ZWtla3V1bnRxbGt2dG9jIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM5NDgzNDUsImV4cCI6MjA2OTUyNDM0NX0.EQtEA-4GqM19vSNEoIF3HgczMEXoelS-o9VyExP2dpw'
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
   auth: {

@@ -1,12 +1,25 @@
 {
   "rewrites": [
     {
+      "source": "/multitenant.html",
+      "destination": "/multitenant.html"
+    },
+    {
+      "source": "/test-updated.html",
+      "destination": "/test-updated.html"
+    },
+    {
       "source": "/test.html",
-      "destination": "/test.html"
+      "destination": "/test-updated.html"
     },
     {
       "source": "/(.*)",
       "destination": "/index.html"
     }
-  ]
+  ],
+  "env": {
+    "REACT_APP_SUPABASE_URL": "https://vhahwekekuuntqlkvtoc.supabase.co",
+    "REACT_APP_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZoYWh3ZWtla3V1bnRxbGt2dG9jIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM5NDgzNDUsImV4cCI6MjA2OTUyNDM0NX0.EQtEA-4GqM19vSNEoIF3HgczMEXoelS-o9VyExP2dpw",
+    "REACT_APP_MULTI_TENANT_MODE": "true"
+  }
 }
