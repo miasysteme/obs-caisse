@@ -19,7 +19,7 @@ function App() {
         boxShadow: '0 2px 10px rgba(0,0,0,0.1)'
       }}>
         <h1 style={{ color: '#2196F3', marginBottom: '10px' }}>
-          🏪 OBS CAISSE - Système de Point de Vente
+          🏪 OBS SYSTEME - Système de Point de Vente
         </h1>
         <h2 style={{ color: '#666', fontWeight: 'normal' }}>
           La Maison des Téléphones - SONUTEC SARL
@@ -28,7 +28,7 @@ function App() {
           ✅ Application Déployée avec Succès !
         </p>
         <p style={{ color: '#666' }}>
-          Le système OBS CAISSE est maintenant en ligne et opérationnel.
+          Le système OBS SYSTEME est maintenant en ligne et opérationnel.
         </p>
       </header>
 
@@ -135,7 +135,7 @@ function App() {
         borderRadius: '10px'
       }}>
         <p style={{ margin: '5px 0' }}>
-          Développé par <strong>SONUTEC SARL</strong> - OBS CAISSE v2.0
+          Développé par <strong>SONUTEC SARL</strong> - OBS SYSTEME v2.0
         </p>
         <p style={{ margin: '5px 0', fontSize: '14px', opacity: 0.8 }}>
           Déployé avec succès sur Vercel | Base de données Supabase

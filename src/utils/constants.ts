@@ -1,7 +1,7 @@
-// Constantes de l'application OBS CAISSE
+// Constantes de l'application OBS SYSTEME
 
 export const APP_CONFIG = {
-  name: 'OBS CAISSE',
+  name: 'OBS SYSTEME',
   version: '1.0.0',
   developer: 'SONUTEC SARL',
   client: 'La Maison des Téléphones'
@@ -74,10 +74,10 @@ export const ROUTES = {
 }
 
 export const LOCAL_STORAGE_KEYS = {
-  CART: 'obs_caisse_cart',
-  CUSTOMER: 'obs_caisse_customer',
-  PRINTER_CONFIG: 'obs_caisse_printer_config',
-  USER_PREFERENCES: 'obs_caisse_user_preferences'
+  CART: 'obs_systeme_cart',
+  CUSTOMER: 'obs_systeme_customer',
+  PRINTER_CONFIG: 'obs_systeme_printer_config',
+  USER_PREFERENCES: 'obs_systeme_user_preferences'
 }
 
 export const API_ENDPOINTS = {

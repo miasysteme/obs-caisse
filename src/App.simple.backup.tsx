@@ -3,7 +3,7 @@ import React from 'react';
 function App() {
   return (
     <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
-      <h1>🏪 OBS CAISSE - Système de Point de Vente</h1>
+      <h1>🏪 OBS SYSTEME - Système de Point de Vente</h1>
       <h2>La Maison des Téléphones</h2>
       
       <div style={{ 
@@ -13,7 +13,7 @@ function App() {
         margin: '20px 0'
       }}>
         <h3>✅ Application Déployée avec Succès !</h3>
-        <p>Le système OBS CAISSE est maintenant en ligne et opérationnel.</p>
+        <p>Le système OBS SYSTEME est maintenant en ligne et opérationnel.</p>
         
         <div style={{ marginTop: '20px' }}>
           <h4>🔗 Liens Utiles :</h4>
@@ -42,7 +42,7 @@ function App() {
         textAlign: 'center',
         color: '#666'
       }}>
-        <p>Développé par SONUTEC SARL - OBS CAISSE v1.0</p>
+        <p>Développé par SONUTEC SARL - OBS SYSTEME v1.0</p>
         <p>Déployé avec succès sur Vercel</p>
       </footer>
     </div>

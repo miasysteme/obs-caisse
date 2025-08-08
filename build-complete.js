@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-console.log('🚀 Construction de l\'application complète OBS CAISSE...\n');
+console.log('🚀 Construction de l\'application complète OBS SYSTEME...\n');
 
 // 1. Sauvegarder les fichiers originaux
 const backupFiles = [
@@ -44,7 +44,7 @@ if (!packageJson.scripts['start:complete']) {
 
 // 4. Créer un fichier de documentation
 const documentation = `
-# 🏪 OBS CAISSE - Application Complète
+# 🏪 OBS SYSTEME - Application Complète
 
 ## 🚀 Démarrage Rapide
 
@@ -205,7 +205,7 @@ Chaque secteur a son propre composant dans \`src/components/sectors/\`
 
 ---
 
-*OBS CAISSE v2.0 - Plateforme SaaS Multi-Tenant pour l'Afrique*
+*OBS SYSTEME v2.0 - Plateforme SaaS Multi-Tenant pour l'Afrique*
 `;
 
 fs.writeFileSync('README-COMPLETE.md', documentation);

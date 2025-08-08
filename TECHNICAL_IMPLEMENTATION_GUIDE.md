@@ -1,4 +1,4 @@
-# OBS CAISSE - Guide d'Implémentation Technique
+# OBS SYSTEME - Guide d'Implémentation Technique
 
 ## ARCHITECTURE TECHNIQUE DÉTAILLÉE
 
@@ -36,7 +36,7 @@
 ### 2. STRUCTURE DU PROJET
 
 ```
-obs-caisse/
+obs-systeme/
 ├── frontend/
 │   ├── src/
 │   │   ├── components/
@@ -489,7 +489,7 @@ export class PrinterService {
     content += this.commands.ALIGN_CENTER
     content += this.commands.BOLD_ON
     content += this.commands.SIZE_DOUBLE
-    content += 'OBS CAISSE\n'
+    content += 'OBS SYSTEME\n'
     content += this.commands.SIZE_NORMAL
     content += this.commands.BOLD_OFF
     content += `${boutique.commercial_name}\n`
@@ -555,7 +555,7 @@ export class PrinterService {
     content += `Service client: ${boutique.phone || ''}\n`
     content += '\n'
     content += this.commands.SIZE_NORMAL
-    content += 'Powered by OBS Caisse - SONUTEC\n'
+    content += 'Powered by OBS SYSTEME - SONUTEC\n'
     
     // Coupe du papier
     content += '\n\n\n'

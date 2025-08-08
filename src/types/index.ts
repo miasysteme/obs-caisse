@@ -1,4 +1,4 @@
-// Types pour l'application OBS CAISSE
+// Types pour l'application OBS SYSTEME
 
 export interface User {
   id: string;

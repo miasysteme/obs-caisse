@@ -103,7 +103,7 @@ const AppTest: React.FC = () => {
   if (loading) {
     return (
       <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
-        <h1>🔄 OBS CAISSE - Test React</h1>
+        <h1>🔄 OBS SYSTEME - Test React</h1>
         <p>Chargement des données...</p>
       </div>
     );
@@ -112,7 +112,7 @@ const AppTest: React.FC = () => {
   return (
     <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif', maxWidth: '1200px', margin: '0 auto' }}>
       <header style={{ textAlign: 'center', marginBottom: '30px' }}>
-        <h1 style={{ color: '#1976d2' }}>🚀 OBS CAISSE - Application React</h1>
+        <h1 style={{ color: '#1976d2' }}>🚀 OBS SYSTEME - Application React</h1>
         <p style={{ color: '#666' }}>Test complet de l'interface React avec Supabase</p>
         <div style={{ 
           padding: '10px', 
@@ -301,7 +301,7 @@ const AppTest: React.FC = () => {
       </div>
 
       <footer style={{ marginTop: '40px', textAlign: 'center', color: '#666' }}>
-        <p>🚀 <strong>OBS CAISSE</strong> - Développé par SONUTEC SARL pour La Maison des Téléphones</p>
+        <p>🚀 <strong>OBS SYSTEME</strong> - Développé par SONUTEC SARL pour La Maison des Téléphones</p>
         <p>✅ Interface React fonctionnelle - Prête pour production</p>
       </footer>
     </div>

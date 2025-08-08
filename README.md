@@ -1,4 +1,4 @@
-# 🏪 OBS CAISSE - Plateforme Multi-Sectorielle SaaS
+# 🏪 OBS SYSTEME - Plateforme Multi-Sectorielle SaaS
 
 **Version :** 1.0.0 Multi-Tenant  
 **Développé par :** SONUTEC SARL  
@@ -9,7 +9,7 @@
 
 ## 📋 DESCRIPTION
 
-**OBS CAISSE** est une plateforme SaaS multi-tenant complète qui transforme la gestion commerciale pour 8 secteurs d'activité en Côte d'Ivoire et en Afrique. De la téléphonie à l'hôtellerie, en passant par la restauration et les services, notre solution s'adapte aux besoins spécifiques de chaque secteur.
+**OBS SYSTEME** est une plateforme SaaS multi-tenant complète qui transforme la gestion commerciale pour 8 secteurs d'activité en Côte d'Ivoire et en Afrique. De la téléphonie à l'hôtellerie, en passant par la restauration et les services, notre solution s'adapte aux besoins spécifiques de chaque secteur.
 
 ---
 
@@ -104,8 +104,8 @@ Compte Vercel
 ### Installation Locale
 ```bash
 # Cloner le repository
-git clone https://github.com/sonutec-team/obs-caisse.git
-cd obs-caisse
+git clone https://github.com/miasysteme/obs-systeme.git
+cd obs-systeme
 
 # Installer les dépendances
 npm install
@@ -142,7 +142,7 @@ vercel
 ## 📁 STRUCTURE DU PROJET
 
 ```
-obs-caisse/
+obs-systeme/
 ├── 📁 database/
 │   └── schema_multitenant.sql      # Schéma complet multi-tenant
 ├── 📁 src/
@@ -252,7 +252,7 @@ npm run test
 ### Développement
 - **Équipe :** SONUTEC SARL
 - **GitHub :** https://github.com/sonutec-team
-- **Documentation :** https://docs.obs-caisse.com
+- **Documentation :** https://docs.obs-systeme.com
 
 ---
 

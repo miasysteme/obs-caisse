@@ -1,8 +1,8 @@
-# 📋 OBS CAISSE - PLAN DE DÉVELOPPEMENT COMPLET
+# 📋 OBS SYSTEME - PLAN DE DÉVELOPPEMENT COMPLET
 
 **Date d'analyse :** 6 Décembre 2024  
 **Statut actuel :** Application déployée avec interface basique  
-**URL Production :** https://obs-caisse.vercel.app  
+**URL Production :** https://obs-systeme.vercel.app
 
 ---
 
@@ -11,7 +11,7 @@
 ### ✅ CE QUI EST DÉJÀ FAIT
 
 #### 1. Infrastructure et Déploiement
-- **✅ Repository GitHub :** `https://github.com/miasysteme/obs-caisse`
+- **✅ Repository GitHub :** `https://github.com/miasysteme/obs-systeme`
 - **✅ Déploiement Vercel :** Application accessible en ligne
 - **✅ Base de données Supabase :** 30 tables configurées et opérationnelles
 - **✅ Interface de test HTML :** Fonctionnelle avec connexion Supabase
@@ -387,7 +387,7 @@ export const store = configureStore({
 
 **📋 CONCLUSION**
 
-Le projet OBS CAISSE a d'excellentes fondations avec une architecture backend solide et une base de code frontend bien structurée. Les principales tâches consistent à :
+Le projet OBS SYSTEME a d'excellentes fondations avec une architecture backend solide et une base de code frontend bien structurée. Les principales tâches consistent à :
 
 1. **Résoudre les problèmes techniques** actuels (dépendances, compilation)
 2. **Implémenter les interfaces utilisateur** manquantes

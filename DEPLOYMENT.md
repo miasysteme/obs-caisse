@@ -1,4 +1,4 @@
-# Guide de Déploiement - OBS CAISSE Frontend
+# Guide de Déploiement - OBS SYSTEME Frontend
 
 ## 📋 Prérequis
 
@@ -45,7 +45,7 @@ Dans Supabase Dashboard > Authentication > Settings :
 
 ```bash
 git clone <repository-url>
-cd obs-caisse-frontend
+cd obs-systeme-frontend
 npm install
 ```
 
@@ -117,7 +117,7 @@ npm run build
 server {
     listen 80;
     server_name your-domain.com;
-    root /path/to/obs-caisse-frontend/build;
+    root /path/to/obs-systeme-frontend/build;
     index index.html;
 
     # Gestion des routes React
@@ -283,8 +283,8 @@ REACT_APP_DEBUG=true npm start
 ```json
 // public/manifest.json
 {
-  "name": "OBS CAISSE",
-  "short_name": "OBS CAISSE",
+  "name": "OBS SYSTEME",
+  "short_name": "OBS SYSTEME",
   "display": "standalone",
   "orientation": "landscape"
 }

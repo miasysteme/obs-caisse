@@ -124,7 +124,7 @@ export const CustomerDisplay: React.FC = () => {
       {/* En-tête */}
       <Box sx={{ textAlign: 'center', p: 4, borderBottom: '1px solid rgba(255,255,255,0.2)' }}>
         <Typography variant="h3" fontWeight="bold" gutterBottom>
-          {displayData?.boutique_name || 'OBS CAISSE'}
+          {displayData?.boutique_name || 'OBS SYSTEME'}
         </Typography>
         <Typography variant="h5" sx={{ opacity: 0.8 }}>
           Bienvenue chez nous !
@@ -213,7 +213,7 @@ export const CustomerDisplay: React.FC = () => {
       {/* Pied de page */}
       <Box sx={{ textAlign: 'center', p: 2, borderTop: '1px solid rgba(255,255,255,0.2)' }}>
         <Typography variant="body2" sx={{ opacity: 0.7 }}>
-          Powered by OBS Caisse - SONUTEC SARL
+          Powered by OBS SYSTEME - SONUTEC SARL
         </Typography>
       </Box>
     </Box>

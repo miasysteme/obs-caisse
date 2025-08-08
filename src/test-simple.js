@@ -102,7 +102,7 @@ async function testCreateSale() {
 
 // Exécuter les tests
 async function runTests() {
-  console.log('🚀 Démarrage des tests OBS CAISSE...');
+  console.log('🚀 Démarrage des tests OBS SYSTEME...');
   
   const connectionTest = await testConnection();
   if (!connectionTest) {
@@ -130,3 +130,4 @@ if (typeof window !== 'undefined') {
 }
 
 export { testConnection, testCreateSale, runTests };
+

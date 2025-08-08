@@ -151,7 +151,7 @@ function App() {
       <Container maxWidth="lg">
         <Box sx={{ my: 4 }}>
           <Typography variant="h2" component="h1" gutterBottom align="center">
-            🏪 OBS CAISSE - TEST
+            🏪 OBS SYSTEME - TEST
           </Typography>
           <Typography variant="h5" component="h2" gutterBottom align="center" color="text.secondary">
             Interface de Test du Système de Point de Vente

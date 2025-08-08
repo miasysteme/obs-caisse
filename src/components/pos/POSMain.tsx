@@ -19,7 +19,7 @@ const POSMain: React.FC = () => {
         justifyContent: 'space-between',
         alignItems: 'center'
       }}>
-        <h2>🏪 OBS CAISSE - Point de Vente</h2>
+        <h2>🏪 OBS SYSTEME - Point de Vente</h2>
         <div style={{ display: 'flex', gap: '15px', alignItems: 'center' }}>
           <span>👤 Utilisateur</span>
           <button style={{
@@ -53,7 +53,7 @@ const POSMain: React.FC = () => {
         textAlign: 'center',
         color: '#666'
       }}>
-        <p>OBS CAISSE v1.0 - La Maison des Téléphones</p>
+        <p>OBS SYSTEME v1.0 - La Maison des Téléphones</p>
       </div>
     </div>
   )

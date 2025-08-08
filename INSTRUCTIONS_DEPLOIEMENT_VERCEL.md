@@ -1,6 +1,6 @@
-# 🚀 INSTRUCTIONS DE DÉPLOIEMENT VERCEL - OBS CAISSE
+# 🚀 INSTRUCTIONS DE DÉPLOIEMENT VERCEL - OBS SYSTEME
 
-**Repository GitHub :** https://github.com/miasysteme/OBS-CAISSE.git  
+**Repository GitHub :** https://github.com/miasysteme/obs-systeme.git
 **Status :** ✅ Code poussé avec succès  
 **Interface de test :** Immédiatement déployable  
 
@@ -15,12 +15,12 @@
 
 ### 2. Import du Repository
 1. Sélectionnez **"Import Git Repository"**
-2. Collez l'URL : `https://github.com/miasysteme/OBS-CAISSE.git`
+2. Collez l'URL : `https://github.com/miasysteme/obs-systeme.git`
 3. Cliquez sur **"Import"**
 
 ### 3. Configuration du Projet
 ```
-Project Name: obs-caisse
+Project Name: obs-systeme
 Framework Preset: Create React App
 Root Directory: ./
 Build Command: npm run build
@@ -163,7 +163,7 @@ F12 → Console → Recherchez les erreurs
 ### Contact
 - **Développeur :** SONUTEC SARL
 - **Client :** La Maison des Téléphones
-- **Repository :** https://github.com/miasysteme/OBS-CAISSE.git
+- **Repository :** https://github.com/miasysteme/obs-systeme.git
 
 ---
 
@@ -178,7 +178,7 @@ F12 → Console → Recherchez les erreurs
 - ✅ Tests de validation réussis
 
 ### 🚀 Prêt pour Production
-L'application **OBS CAISSE** est maintenant prête pour un déploiement en production sur Vercel. L'interface de test (`/test.html`) offre toutes les fonctionnalités nécessaires pour un système de point de vente professionnel.
+L'application **OBS SYSTEME** est maintenant prête pour un déploiement en production sur Vercel. L'interface de test (`/test.html`) offre toutes les fonctionnalités nécessaires pour un système de point de vente professionnel.
 
 **URL de test après déploiement :** `https://[votre-app].vercel.app/test.html`
 

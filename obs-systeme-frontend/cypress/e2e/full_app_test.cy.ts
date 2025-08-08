@@ -1,10 +1,10 @@
-describe('OBS CAISSE Full Application Test Suite', () => {
+describe('OBS SYSTEME Full Application Test Suite', () => {
   before(() => {
     cy.visit('/');
   });
 
   it('Loads the main page and checks header', () => {
-    cy.contains('OBS CAISSE');
+    cy.contains('OBS SYSTEME');
     cy.get('header').should('exist');
   });
 

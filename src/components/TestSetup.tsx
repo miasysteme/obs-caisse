@@ -67,11 +67,11 @@ export const TestSetup: React.FC = () => {
   return (
     <Box sx={{ maxWidth: 800, mx: 'auto', p: 3 }}>
       <Typography variant="h4" gutterBottom align="center">
-        🧪 Configuration de Test OBS CAISSE
+        🧪 Configuration de Test OBS SYSTEME
       </Typography>
       
       <Typography variant="body1" color="text.secondary" align="center" sx={{ mb: 4 }}>
-        Utilisez ces outils pour configurer et tester l'application OBS CAISSE
+        Utilisez ces outils pour configurer et tester l'application OBS SYSTEME
       </Typography>
 
       <Box sx={{ display: 'flex', gap: 2, mb: 4, justifyContent: 'center' }}>

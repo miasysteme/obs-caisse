@@ -1,4 +1,4 @@
-# OBS CAISSE - Spécifications API
+# OBS SYSTEME - Spécifications API
 
 ## ENDPOINTS PRINCIPAUX
 

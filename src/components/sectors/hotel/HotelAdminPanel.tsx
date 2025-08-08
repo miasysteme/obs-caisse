@@ -54,7 +54,7 @@ const HotelAdminPanel: React.FC<HotelAdminPanelProps> = ({ establishmentId, user
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-2xl font-bold text-gray-900">🏨 Administration Hôtelière</h1>
-            <p className="text-gray-600">Système complet de gestion d'hôtel - OBS CAISSE</p>
+            <p className="text-gray-600">Système complet de gestion d'hôtel - OBS SYSTEME</p>
           </div>
           <div className="flex items-center space-x-4">
             <select

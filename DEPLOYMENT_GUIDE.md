@@ -1,4 +1,4 @@
-# OBS CAISSE - Guide de Déploiement
+# OBS SYSTEME - Guide de Déploiement
 
 ## GUIDE COMPLET DE DÉPLOIEMENT ET MAINTENANCE
 
@@ -66,9 +66,9 @@ CREATE POLICY "Boutiques access policy" ON boutiques
 ```javascript
 // Dans le dashboard Supabase > Authentication > Settings
 {
-  "site_url": "https://obs-caisse.vercel.app",
+  "site_url": "https://obs-systeme.vercel.app",
   "redirect_urls": [
-    "https://obs-caisse.vercel.app/auth/callback",
+    "https://obs-systeme.vercel.app/auth/callback",
     "http://localhost:3000/auth/callback"
   ],
   "jwt_expiry": 3600,
@@ -208,7 +208,7 @@ SUPABASE_SERVICE_KEY=your-service-role-key
 SUPABASE_JWT_SECRET=your-jwt-secret
 
 # CORS
-CORS_ORIGIN=https://obs-caisse.vercel.app
+CORS_ORIGIN=https://obs-systeme.vercel.app
 
 # Monitoring
 SENTRY_DSN=your-sentry-dsn
@@ -226,9 +226,9 @@ SMTP_PASS=your-app-password
 ```
 # Enregistrements DNS
 Type    Name                Value                           TTL
-A       obs-caisse         76.76.19.123 (IP Vercel)       300
+A       obs-systeme         76.76.19.123 (IP Vercel)       300
 CNAME   api                railway-production-url          300
-CNAME   www                obs-caisse.com                  300
+CNAME   www                obs-systeme.com                  300
 ```
 
 #### 5.2 Certificats SSL
@@ -237,8 +237,8 @@ CNAME   www                obs-caisse.com                  300
 # Railway aussi pour les domaines personnalisés
 
 # Vérification SSL
-curl -I https://obs-caisse.com
-curl -I https://api.obs-caisse.com/health
+curl -I https://obs-systeme.com
+curl -I https://api.obs-systeme.com/health
 ```
 
 ### 6. MONITORING ET LOGGING
@@ -281,7 +281,7 @@ const logger = winston.createLogger({
     winston.format.errors({ stack: true }),
     winston.format.json()
   ),
-  defaultMeta: { service: 'obs-caisse-api' },
+  defaultMeta: { service: 'obs-systeme-api' },
   transports: [
     new winston.transports.File({ filename: 'error.log', level: 'error' }),
     new winston.transports.File({ filename: 'combined.log' }),
@@ -636,7 +636,7 @@ module.exports = { runMaintenance };
 
 set -e
 
-echo "🚀 Déploiement OBS Caisse"
+echo "🚀 Déploiement OBS SYSTEME"
 
 # Vérifier les tests
 echo "📋 Exécution des tests..."
@@ -659,7 +659,7 @@ echo "⏳ Vérification du service..."
 sleep 30
 
 # Health check
-HEALTH_URL="https://api.obs-caisse.com/health"
+HEALTH_URL="https://api.obs-systeme.com/health"
 if curl -f $HEALTH_URL; then
   echo "✅ Déploiement réussi!"
 else
@@ -691,7 +691,7 @@ class AlertSystem {
   static async sendAlert(type, message, details = {}) {
     const alerts = {
       'system_error': {
-        subject: '🚨 Erreur Système OBS Caisse',
+        subject: '🚨 Erreur Système OBS SYSTEME',
         priority: 'high'
       },
       'subscription_expired': {
@@ -741,19 +741,19 @@ const register = new prometheus.Register();
 
 // Métriques personnalisées
 const salesCounter = new prometheus.Counter({
-  name: 'obs_caisse_sales_total',
+  name: 'obs_systeme_sales_total',
   help: 'Nombre total de ventes',
   labelNames: ['boutique_id', 'payment_method']
 });
 
 const imeiValidationHistogram = new prometheus.Histogram({
-  name: 'obs_caisse_imei_validation_duration_seconds',
+  name: 'obs_systeme_imei_validation_duration_seconds',
   help: 'Durée de validation IMEI',
   buckets: [0.1, 0.5, 1, 2, 5]
 });
 
 const stockGauge = new prometheus.Gauge({
-  name: 'obs_caisse_stock_level',
+  name: 'obs_systeme_stock_level',
   help: 'Niveau de stock par produit',
   labelNames: ['boutique_id', 'product_id']
 });

@@ -1,4 +1,4 @@
-# OBS CAISSE - Schéma de Base de Données Complet
+# OBS SYSTEME - Schéma de Base de Données Complet
 
 ## STRUCTURE COMPLÈTE SUPABASE
 

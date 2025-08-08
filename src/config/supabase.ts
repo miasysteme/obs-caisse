@@ -20,7 +20,7 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
 export type Database = {
   public: {
     Tables: {
-      // Utilisation des tables existantes adaptées pour OBS CAISSE
+      // Utilisation des tables existantes adaptées pour OBS SYSTEME
       obs_clients: {
         Row: {
           id: string

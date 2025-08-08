@@ -1,4 +1,4 @@
-# 🚀 OBS CAISSE - PRÊT POUR DÉPLOIEMENT
+# 🚀 OBS SYSTEME - PRÊT POUR DÉPLOIEMENT
 
 ## ✅ STATUT DE PRODUCTION
 
@@ -56,7 +56,7 @@ REACT_APP_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXB
 ## 📁 STRUCTURE DÉPLOYÉE
 
 ```
-obs-caisse-frontend/
+obs-systeme-frontend/
 ├── public/
 │   ├── index.html          ✅ Page principale
 │   └── test.html           ✅ Interface de test fonctionnelle
@@ -95,7 +95,7 @@ obs-caisse-frontend/
 ### 1. Commit GitHub
 ```bash
 git add .
-git commit -m "🚀 OBS CAISSE v1.0 - Ready for Production"
+git commit -m "🚀 OBS SYSTEME v1.0 - Ready for Production"
 git push origin main
 ```
 

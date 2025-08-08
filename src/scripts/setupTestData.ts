@@ -1,8 +1,8 @@
 import { supabase } from '../config/supabase'
 
-// Script pour initialiser les données de test OBS CAISSE
+// Script pour initialiser les données de test OBS SYSTEME
 export async function setupTestData() {
-  console.log('🚀 Initialisation des données de test OBS CAISSE...')
+  console.log('🚀 Initialisation des données de test OBS SYSTEME...')
 
   try {
     // 1. Créer un client entreprise (La Maison des Téléphones)
@@ -270,7 +270,7 @@ export async function setupTestData() {
 
     console.log('✅ Paiements créés')
 
-    console.log('\n🎉 Données de test OBS CAISSE initialisées avec succès!')
+    console.log('\n🎉 Données de test OBS SYSTEME initialisées avec succès!')
     console.log('\n📊 Résumé:')
     console.log(`- 1 client entreprise: ${client.nom}`)
     console.log(`- ${stores.length} boutiques`)
@@ -341,5 +341,5 @@ export async function testSupabaseConnection() {
   }
 }
 
-// Script d'initialisation des données de test OBS CAISSE
+// Script d'initialisation des données de test OBS SYSTEME
 // Utiliser: import { setupTestData } from './scripts/setupTestData'

@@ -1,4 +1,4 @@
-# OBS CAISSE - Spécifications UI/UX
+# OBS SYSTEME - Spécifications UI/UX
 
 ## DESIGN SYSTEM ET INTERFACE UTILISATEUR
 

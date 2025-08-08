@@ -1,8 +1,8 @@
-# OBS CAISSE - Documentation Technique Complète
+# OBS SYSTEME - Documentation Technique Complète
 ## Système de Point de Vente pour Réseau de Boutiques de Téléphones
 
 **Développé par:** SONUTEC SARL  
-**Produit:** OBS Caisse  
+**Produit:** OBS SYSTEME
 **Client:** La Maison des Téléphones  
 **Base de données:** Supabase  
 **Date:** 2024  
@@ -29,7 +29,7 @@
 ## 1. VUE D'ENSEMBLE DU PROJET
 
 ### 1.1 Contexte
-OBS Caisse est un système de point de vente web conçu pour gérer un réseau de boutiques de téléphones affiliées à "La Maison des Téléphones". Le système permet une gestion centralisée avec traçabilité complète des téléphones via leurs numéros IMEI.
+OBS SYSTEME est un système de point de vente web conçu pour gérer un réseau de boutiques de téléphones affiliées à "La Maison des Téléphones". Le système permet une gestion centralisée avec traçabilité complète des téléphones via leurs numéros IMEI.
 
 ### 1.2 Objectifs principaux
 - Gestion des ventes avec traçabilité IMEI obligatoire pour les téléphones
@@ -309,7 +309,7 @@ CREATE TABLE subscriptions (
 #### 5.1.1 Écran principal de vente
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│ OBS Caisse - [Nom Boutique]                    [Caissier: John] │
+│ OBS SYSTEME - [Nom Boutique]                    [Caissier: John] │
 ├─────────────────────────────────────────────────────────────────┤
 │ Recherche produit: [_________________] [Rechercher]             │
 ├─────────────────────────────────────────────────────────────────┤
@@ -371,7 +371,7 @@ CREATE TABLE subscriptions (
 #### 5.3.1 Gestion technique
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│ SONUTEC SARL - Administration OBS Caisse                       │
+│ SONUTEC SARL - Administration OBS SYSTEME                       │
 ├─────────────────────────────────────────────────────────────────┤
 │ CLIENTS ENTREPRISES                                             │
 │ ┌─────────────────┬──────────┬─────────┬─────────┬─────────────┐ │
@@ -507,7 +507,7 @@ Admin Maître (SONUTEC)
 
 #### 8.2.1 Reçu de vente standard (58mm)
 ```
-        OBS CAISSE
+        OBS SYSTEME
     [Nom de la boutique]
     [Adresse boutique]
     Tel: [Téléphone]
@@ -543,12 +543,12 @@ RENDU:                13,000F
 Garantie: 12 mois pièces
 Service client: +237 XXX XXX XXX
 
-Powered by OBS Caisse - SONUTEC
+Powered by OBS SYSTEME - SONUTEC
 ```
 
 #### 8.2.2 Facture détaillée (80mm)
 ```
-                    OBS CAISSE
+                    OBS SYSTEME
               [Nom de la boutique]
               [Adresse complète]
               Tel: [Téléphone]
@@ -607,7 +607,7 @@ Email: support@[boutique].com
 ================================================================
               Merci de votre confiance!
               
-         Powered by OBS Caisse - SONUTEC SARL
+         Powered by OBS SYSTEME - SONUTEC SARL
               www.sonutec.com
 ```
 

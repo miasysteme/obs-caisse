@@ -1,5 +1,5 @@
 
-# 🏪 OBS CAISSE - Application Complète
+# 🏪 OBS SYSTEME - Application Complète
 
 ## 🚀 Démarrage Rapide
 
@@ -160,4 +160,4 @@ Chaque secteur a son propre composant dans `src/components/sectors/`
 
 ---
 
-*OBS CAISSE v2.0 - Plateforme SaaS Multi-Tenant pour l'Afrique*
+*OBS SYSTEME v2.0 - Plateforme SaaS Multi-Tenant pour l'Afrique*

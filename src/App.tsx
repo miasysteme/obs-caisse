@@ -126,7 +126,7 @@ const App: React.FC = () => {
     return (
       <Box>
         <Typography variant="h3" gutterBottom align="center" sx={{ mb: 4 }}>
-          Bienvenue sur OBS CAISSE
+          Bienvenue sur OBS SYSTEME
         </Typography>
         
         <Box sx={{ mb: 4, textAlign: 'center' }}>
@@ -250,7 +250,7 @@ const App: React.FC = () => {
         <Container maxWidth="sm" sx={{ mt: 8 }}>
           <Box sx={{ textAlign: 'center', mb: 4 }}>
             <Typography variant="h3" gutterBottom color="primary">
-              🏪 OBS CAISSE
+              🏪 OBS SYSTEME
             </Typography>
             <Typography variant="h6" color="text.secondary">
               Plateforme Multi-Sectorielle SaaS
@@ -268,7 +268,7 @@ const App: React.FC = () => {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            🏪 OBS CAISSE - Plateforme Multi-Sectorielle
+            🏪 OBS SYSTEME - Plateforme Multi-Sectorielle
           </Typography>
           
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
@@ -364,7 +364,7 @@ const App: React.FC = () => {
       }}>
         <Container maxWidth="xl">
           <Typography variant="body2" color="text.secondary" align="center">
-            © 2024 SONUTEC SARL - OBS CAISSE v2.0 Multi-Tenant
+            © 2024 SONUTEC SARL - OBS SYSTEME v2.0 Multi-Tenant
             <br />
             Plateforme SaaS révolutionnaire pour l'Afrique
           </Typography>
